@@ -1,0 +1,65 @@
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter-Regular.otf");
+}
+.apple_folder{
+    width:1500px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.apple{
+    width:150px;
+}
+
+.reg_text_nav{
+    margin-left: auto;
+    margin-right: auto;
+    width:700px;
+    height: 50px;
+}
+.reg_text{
+    color: #D48800;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 27px;
+    margin-left: 140px;
+}
+.input{
+    margin-top:35px;
+    width:600px;
+    display: block;
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #D5B472;
+    border-radius: 20px;
+}
+.ent_and_reg{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top:50px;
+}
+.if{
+    font-family: Inter;
+    margin-left:20px;
+    margin-top:10px;
+
+}
+.but_reg{
+    width:250px;
+    height: 60px;
+    border-radius: 20px;
+    border:none;
+    background-color: #D1A14B;
+    font-family: Inter;
+    font-size: 22px;
+    color:#fff;
+}
