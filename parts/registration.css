@@ -3,13 +3,13 @@
     src: url("/fonts/Inter-Regular.otf");
 }
 .apple_folder{
-    width:1500px;
+    width:1000px;
     height: 100px;
     margin-left: auto;
     margin-right: auto;
 }
 .apple{
-    width:150px;
+    width:100px;
 }
 
 .reg_text_nav{
