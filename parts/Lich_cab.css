@@ -53,11 +53,11 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 28px;
     line-height: 27px;
     color:#905E01;
-    margin:20px;
-    top: 30px;
+    margin:10px;
+    top: 25px;
     position: relative;
     
 }
@@ -68,7 +68,7 @@
 }
 .map{
     width:800px;
-    height: 00px;
+    height: 550px;
     background-color: #905E01;
     
 }
