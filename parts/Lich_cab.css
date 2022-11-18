@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter-Regular.otf");
+}
+.top{
+    margin-top:50px;
+}
+.main_content_nav{
+    width:1500px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.bold_text{
+    color:#905E01;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+}
+.pre_main_content_nav{
+    width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.usual_text{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 22px; 
+    color: #905E01;
+    margin-left: 300px;
+}
+.proz{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 27px;
+    color:rgba(220, 204, 169, 0.79);
+}
+.stroc{
+    width:800px;
+    height:80px;
+    border:2px solid rgba(213, 180, 114, 1);
+    border-radius: 20px;
+    background-color: rgba(255, 245, 224, 1);
+    display:grid;
+    grid-template-columns: 650px 150px;
+}
+.info{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 27px;
+    color:#905E01;
+    margin:20px;
+    top: 30px;
+    position: relative;
+    
+}
+.but_change{
+    width:100px;
+    height:100%;
+    border-radius: 25px;
+}
+.map{
+    width:800px;
+    height: 00px;
+    background-color: #905E01;
+    
+}

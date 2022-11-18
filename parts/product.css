@@ -1,0 +1,90 @@
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter-Regular.otf");
+}
+.main_nav_cont{
+    width:1500px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:30px;
+}
+.but_to_main{
+    background-color: rgba(220, 204, 169, 0.26);
+    width:400px;
+    height: 50px;
+}
+.but_to_main_text{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 27px;
+    color: #EBC373;
+    position: relative;
+    margin:20px;
+    top:8px
+}
+.prod_nav{
+    margin-top:30px;
+    width:1500px;
+    height:400px;
+    background-color: white;
+    border:2px solid rgba(206, 189, 154, 1);
+    border-radius: 25px;
+    display:grid;
+    grid-template-columns: 400px 1300px;
+    grid-column-gap: 30px;
+}
+.pic_tov{
+    width:400px;
+    height:100%;
+    border-radius: 25px;
+    background-color: aqua;
+}
+.big_text{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 40px;
+    color:#573C00;
+}
+.small_text{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 40px;
+    color:#573C00;
+}
+.grid{
+    display:grid;
+    grid-template-columns: 400px 300px 400px;
+    margin-top: 100px;
+}
+.add_but{
+    width:250px;
+    height:70px;
+    background-color: rgba(108, 74, 0, 0.53);
+    border-radius: 20px;
+}
+.add_but2{
+    width:300px;
+    height:70px;
+    background-color: rgba(108, 74, 0, 0.53);
+    border-radius: 20px;
+}
+.white_pic{
+    margin:20px;
+}
+.white_pic_text{
+    color:white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 30px;
+    position: relative;
+    bottom: 70px;
+    left:70px;
+}
