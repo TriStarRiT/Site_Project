@@ -14,8 +14,12 @@ if(!empty($_POST)){
     $fields_enter = load($fields_enter);
     debug($fields_enter);
     $r = R::findOne('user', 'email = ?', [$fields_enter['email']['value']])['passsword'];
-    echo $r;
-
+    if (password_verify($fields_enter['password']['value'], $r)){
+        echo 'Вы вошли!';
+    }
+    else {
+        echo '<li>Неверная почта или пароль</li>';
+    }
 }
 
 
