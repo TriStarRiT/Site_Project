@@ -4,8 +4,9 @@ var db = openDatabase("db", "1.0", "DataBase", 200000);
 /* Создание таблицы с юзерами */ 
 function CreateTable() {
     db = openDatabase("db", "1.0", "DataBase", 200000);
+    /* NOT NULL PRIMARY KEY autoincrement */
     db.transaction(function (tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS user (user_id serial NOT NULL PRIMARY KEY autoincrement, Second_name varchar(20) NOT NULL, First_name varchar(20) NOT NULL, Father_name varchar(20), email varchar(50) NOT NULL, password varchar(50) NOT NULL, telephone varchar(11) NOT NULL, date_of_birth datetime NOT NULL');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS user (user_id REAL UNIQUE, Second_name TEXT, First_name TEXT, Father_name TEXT, email TEXT, password TEXT, telephone TEXT, date_of_birth REAL');
     })
     alert("Таблица создана!");
     if (!db) {
@@ -46,6 +47,7 @@ function GetRowsUser() {
             }*/
         },function(tx, error){
             alert("Ошибка!");
+            tx.executeSql('CREATE TABLE IF NOT EXISTS user (user_id REAL UNIQUE, Second_name TEXT, First_name TEXT, Father_name TEXT, email TEXT, password TEXT, telephone TEXT, date_of_birth REAL');
         })
     })
 }

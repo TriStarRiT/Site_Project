@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    $db = mysqli_connect('hostname','admin','13137979','databasename');
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,8 +23,8 @@
             <input class="input" type="text" id="tx6" placeholder="Телефон">
             <input class="input" type="date" id="tx7" placeholder="Дата рождения">
             <nav class="ent_and_reg">
-                <label class="if">Если у вас уже есть аккаунт,<br> нажмите <a onclick="GetRowsUser()"><span style="color:#D1A14B">войти</span></a> </label>
-                <button onclick="IncertRowsUser()" class="but_reg">Зарегистрироваться</button>
+                <label class="if">Если у вас уже есть аккаунт,<br> нажмите <a onclick="IncertRowsUser() "><span style="color:#D1A14B">войти</span></a> </label>
+                <button onclick="GetRowsUser()" class="but_reg">Зарегистрироваться</button>
             </nav>
             </div>
         </nav>

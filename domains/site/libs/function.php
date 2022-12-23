@@ -1,6 +1,7 @@
 <?php
 
 function debug($data){
+    echo '<nav style="  width:200px; height:200px; background-color:red;"></nav';
     echo '<div><pre style="color:red;">' . print_r($data, true) . '</pre></div>';
 }
 function load($data){
@@ -25,4 +26,13 @@ function errors($data){
         $errors .= "<p style='width:100%; text-align: center' >Этот телефон уже зарегестрирован </p>" ;
     }
     return $errors;
+}
+
+function product_errors($data){
+    $errors = '';
+    foreach ($data as $k => $v){
+        if ($data[$k]['requiered'] && empty($data[$k]['value'])){
+            $errors .= "<p style='width:100%; text-align: center'>Вы не заполнили поле {$data[$k]['field_name']}</p>";
+        }
+    }
 }

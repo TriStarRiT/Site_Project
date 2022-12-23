@@ -45,3 +45,36 @@ $fields_enter = [
         'field_name' => 'пароль'
     ]
 ];
+
+$product = [
+    'name'=>[
+        'field_name' => 'Название'
+    ],
+    'expiration date' => [
+        'field_name' => 'Срок годности'
+    ],
+    'type_of_product'=>[
+        'field_name' => 'Тип продукта'
+    ],
+    'Number_of_order' => [
+        'field_name' => 'Номер заказа'
+    ],
+    'size'=>[
+        'field_name' => 'Размер продукта'
+    ],
+    'Cost' => [
+        'field_name' => 'Цена'
+    ],
+    'Ones_in_storage'=>[
+        'field_name' => 'Количество на складе'
+    ],
+    'quality_by_expiration_date' => [
+        'field_name' => 'Качество по сроку годности'
+    ],
+    'storage_id'=>[
+        'field_name' => 'id хранилища'
+    ],
+    'favourite_rate' => [
+        'field_name' => 'рейтинг по качеству'
+    ]
+    ];

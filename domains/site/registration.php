@@ -39,33 +39,34 @@ require_once __DIR__ . '/libs/function.php';
                         <button type="submit" class="but_reg">Зарегистрироваться</button>
                 </nav>
                 <?php
-                    if(!empty($_POST)){
-                        //debug($_POST);
-                        $fields = load($fields);
+                        if(!empty($_POST)){
+                            //debug($_POST);
+                            $fields = load($fields);
 
-                        
-                        //debug($fields);
-                        if($errors = errors($fields)){
-                            debug($errors);
+                            
+                            //debug($fields);
+                            if($errors = errors($fields)){
+                                debug($errors);
+                                
+                            }
+                            else{
+                                echo 'ok';
+                                $password = $fields['password']['value'];
+                                $user = R::dispense('user');
+                                $user -> First_name = $fields['sname']['value'];
+                                $user -> Second_name = $fields['name']['value'];
+                                $user -> Fathers_name = $fields['fname']['value'];
+                                $user -> email = $fields['email']['value'];
+                                $user -> passsword = password_hash($password, PASSWORD_DEFAULT);
+                                $user -> telephone = $fields['telephone']['value'];
+                                $user -> date_of_birth = $fields['dbirth']['value'];
+                                $user = R::store($user);
+                                $user = R::load('user',$id);
+                                $_SESSION['id'] = R::findOne('user', 'email = ?', [$fields['email']['value']])['id'];
+                                echo $_SESSION['id'];
+                            }
                         }
-                        else{
-                            echo 'ok';
-                            $password = $fields['password']['value'];
-                            $user = R::dispense('user');
-                            $user -> First_name = $fields['sname']['value'];
-                            $user -> Second_name = $fields['name']['value'];
-                            $user -> Fathers_name = $fields['fname']['value'];
-                            $user -> email = $fields['email']['value'];
-                            $user -> passsword = password_hash($password, PASSWORD_DEFAULT);
-                            $user -> telephone = $fields['telephone']['value'];
-                            $user -> date_of_birth = $fields['dbirth']['value'];
-                            $user = R::store($user);
-                            $user = R::load('user',$id);
-                            $_SESSION['id'] = R::findOne('user', 'email = ?', [$fields['email']['value']])['id'];
-                            echo $_SESSION['id'];
-                        }
-                    }
-                ?>
+        ?>
             </form>
         </nav>
     </nav>
