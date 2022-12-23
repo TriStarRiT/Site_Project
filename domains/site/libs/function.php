@@ -1,7 +1,7 @@
 <?php
 
 function debug($data){
-    echo '<pre>' . print_r($data, true) . '</pre>';
+    echo '<div><pre style="color:red;">' . print_r($data, true) . '</pre></div>';
 }
 function load($data){
     foreach($_POST as $k => $v){
@@ -15,14 +15,14 @@ function errors($data){
     $errors = '';
     foreach ($data as $k => $v){
         if($data[$k]['requiered'] && empty($data[$k]['value'])){
-            $errors .= "<li>Вы не заполнили поле {$data[$k]['field_name']}</li>";
+            $errors .= "<p style='width:100%; text-align: center'>Вы не заполнили поле {$data[$k]['field_name']}</p>";
         }
     }
     if(R::findOne('user', 'email = ?', [$data['email']['value']])){
-        $errors .= "<li>Эта почта уже зарегестрирована </li>" ;
+        $errors .= "<p style='width:100%; text-align: center' >Эта почта уже зарегестрирована </p>" ;
     }
     if(R::findOne('user', 'telephone = ?', [$data['telephone']['value']])){
-        $errors .= "<li>Этот телефон уже зарегестрирован </li>" ;
+        $errors .= "<p style='width:100%; text-align: center' >Этот телефон уже зарегестрирован </p>" ;
     }
     return $errors;
 }

@@ -1,36 +1,12 @@
 <?php
 
+session_start();
 require "libs/db.php";
 //http://site
 //echo '<div style="color:red;">'.array_shift($errors).'</div><hr>';
 
 require_once __DIR__ . '/libs/data.php';
 require_once __DIR__ . '/libs/function.php';
-
-if(!empty($_POST)){
-    //debug($_POST);
-    $fields = load($fields);
-
-    
-    //debug($fields);
-    if($errors = errors($fields)){
-        debug($errors);
-    }
-    else{
-        echo 'ok';
-        $password = $fields['password']['value'];
-        $user = R::dispense('user');
-        $user -> First_name = $fields['sname']['value'];
-        $user -> Second_name = $fields['name']['value'];
-        $user -> Fathers_name = $fields['fname']['value'];
-        $user -> email = $fields['email']['value'];
-        $user -> passsword = password_hash($password, PASSWORD_DEFAULT);
-        $user -> telephone = $fields['telephone']['value'];
-        $user -> date_of_birth = $fields['dbirth']['value'];
-        $user = R::store($user);
-        $user = R::load('user',$id);
-    }
-}
 
 
 ?>
@@ -41,7 +17,7 @@ if(!empty($_POST)){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="registration.css">
+    <link rel="stylesheet" href="css/registration.css">
     <title>Document</title>
 </head>
 <body>
@@ -62,6 +38,34 @@ if(!empty($_POST)){
                     <label class="if">Если у вас уже есть аккаунт,<br> нажмите <a><span style="color:#D1A14B">войти</span></a> </label>
                         <button type="submit" class="but_reg">Зарегистрироваться</button>
                 </nav>
+                <?php
+                    if(!empty($_POST)){
+                        //debug($_POST);
+                        $fields = load($fields);
+
+                        
+                        //debug($fields);
+                        if($errors = errors($fields)){
+                            debug($errors);
+                        }
+                        else{
+                            echo 'ok';
+                            $password = $fields['password']['value'];
+                            $user = R::dispense('user');
+                            $user -> First_name = $fields['sname']['value'];
+                            $user -> Second_name = $fields['name']['value'];
+                            $user -> Fathers_name = $fields['fname']['value'];
+                            $user -> email = $fields['email']['value'];
+                            $user -> passsword = password_hash($password, PASSWORD_DEFAULT);
+                            $user -> telephone = $fields['telephone']['value'];
+                            $user -> date_of_birth = $fields['dbirth']['value'];
+                            $user = R::store($user);
+                            $user = R::load('user',$id);
+                            $_SESSION['id'] = R::findOne('user', 'email = ?', [$fields['email']['value']])['id'];
+                            echo $_SESSION['id'];
+                        }
+                    }
+                ?>
             </form>
         </nav>
     </nav>

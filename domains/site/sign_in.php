@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require "libs/db.php";
 //http://site
 //echo '<div style="color:red;">'.array_shift($errors).'</div><hr>';
@@ -8,20 +8,6 @@ require "libs/db.php";
 
 require_once __DIR__ . '/libs/data.php';
 require_once __DIR__ . '/libs/function.php';
-
-if(!empty($_POST)){
-    debug($_POST);
-    $fields_enter = load($fields_enter);
-    debug($fields_enter);
-    $r = R::findOne('user', 'email = ?', [$fields_enter['email']['value']])['passsword'];
-    if (password_verify($fields_enter['password']['value'], $r)){
-        echo 'Вы вошли!';
-    }
-    else {
-        echo '<li>Неверная почта или пароль</li>';
-    }
-}
-
 
 ?>
 
@@ -33,7 +19,7 @@ if(!empty($_POST)){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sign_in</title>
     <link rel="icon" href="/image/apple.ico" type="image/x-icon">
-    <link rel="stylesheet" href="sign_in.css">
+    <link rel="stylesheet" href="css/sign_in.css">
 </head>
 <body>
 <div class="telo">
@@ -59,6 +45,26 @@ if(!empty($_POST)){
             <button type="submit" class="signin4">Войти</button>
             <a href="/vosstanovlenie.html" class="signin3">Забыли пароль?</a>
         </div>
+    </div>
+
+    <div>
+        <?php
+        
+        if(!empty($_POST)){
+            //debug($_POST);
+            $fields_enter = load($fields_enter);
+            //debug($fields_enter);
+            $r = R::findOne('user', 'email = ?', [$fields_enter['email']['value']])['passsword'];
+            if (password_verify($fields_enter['password']['value'], $r)){
+                echo 'Вы вошли!';
+                $_SESSION['id'] = R::findOne('user', 'email = ?', [$fields_enter['email']['value']])['id'];
+                header('Location: /registration.php');
+            }
+            else {
+                echo '<p style="color:red; font-family: "Inter";">Неверная почта или пароль</p>';
+            }
+}
+        ?>
     </div>
 </form>
 </div>
