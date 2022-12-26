@@ -48,33 +48,43 @@ $fields_enter = [
 
 $product = [
     'name'=>[
-        'field_name' => 'Название'
+        'field_name' => 'Название',
+        'requiered'=> 1
     ],
     'expiration date' => [
-        'field_name' => 'Срок годности'
+        'field_name' => 'Срок годности',
+        'requiered'=> 1
     ],
     'type_of_product'=>[
-        'field_name' => 'Тип продукта'
+        'field_name' => 'Тип продукта',
+        'requiered'=> 1
     ],
     'Number_of_order' => [
-        'field_name' => 'Номер заказа'
+        'field_name' => 'Номер заказа',
+        'requiered'=> 1
     ],
-    'size'=>[
-        'field_name' => 'Размер продукта'
-    ],
+    /*'size'=>[
+        'field_name' => 'Размер продукта',
+        'requiered'=> 1
+    ],*/
     'Cost' => [
-        'field_name' => 'Цена'
+        'field_name' => 'Цена',
+        'requiered'=> 1
     ],
-    'Ones_in_storage'=>[
-        'field_name' => 'Количество на складе'
-    ],
+    /*'Ones_in_storage'=>[
+        'field_name' => 'Количество на складе',
+        'requiered'=> 1
+    ],*/
     'quality_by_expiration_date' => [
-        'field_name' => 'Качество по сроку годности'
+        'field_name' => 'Качество по сроку годности',
+        'requiered'=> 0
     ],
-    'storage_id'=>[
-        'field_name' => 'id хранилища'
-    ],
-    'favourite_rate' => [
-        'field_name' => 'рейтинг по качеству'
-    ]
+    /*'storage_id'=>[
+        'field_name' => 'id хранилища',
+        'requiered'=> 1
+    ],*/
+    /*'favourite_rate' => [
+        'field_name' => 'рейтинг по качеству',
+        'requiered'=> 0
+    ]*/
     ];

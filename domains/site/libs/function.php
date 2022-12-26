@@ -35,4 +35,8 @@ function product_errors($data){
             $errors .= "<p style='width:100%; text-align: center'>Вы не заполнили поле {$data[$k]['field_name']}</p>";
         }
     }
+    if(R::findOne('product','name = ?',[$data['name']['value']])){
+        $errors .= "<p style='width:100%; text-align: center' >Этот товар уже существует </p>" ;
+    }
+    return $errors;
 }
