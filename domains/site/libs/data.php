@@ -46,12 +46,16 @@ $fields_enter = [
     ]
 ];
 
-$product = [
+$products = [
     'name'=>[
         'field_name' => 'Название',
         'requiered'=> 1
     ],
-    'expiration date' => [
+    'description' => [
+        'field_name' => 'Описание',
+        'requiered'=>1
+    ],
+    'expiration_date' => [
         'field_name' => 'Срок годности',
         'requiered'=> 1
     ],
@@ -59,7 +63,7 @@ $product = [
         'field_name' => 'Тип продукта',
         'requiered'=> 1
     ],
-    'Number_of_order' => [
+    'number_of_order' => [
         'field_name' => 'Номер заказа',
         'requiered'=> 1
     ],
@@ -67,17 +71,21 @@ $product = [
         'field_name' => 'Размер продукта',
         'requiered'=> 1
     ],*/
-    'Cost' => [
+    'cost' => [
         'field_name' => 'Цена',
         'requiered'=> 1
     ],
-    /*'Ones_in_storage'=>[
-        'field_name' => 'Количество на складе',
+    'ones'=>[
+        'field_name' => 'Количество',
         'requiered'=> 1
-    ],*/
+    ],
     'quality_by_expiration_date' => [
         'field_name' => 'Качество по сроку годности',
         'requiered'=> 0
+    ],
+    'picture' =>[
+        'field_name' => 'Фото продукта',
+        'required'=> 1
     ],
     /*'storage_id'=>[
         'field_name' => 'id хранилища',
@@ -88,3 +96,58 @@ $product = [
         'requiered'=> 0
     ]*/
     ];
+
+$add_to_pocket = [
+    'id_tov' =>[
+        'field_name'=>'',
+    ]
+];
+
+$ones1 = [
+    'ones2' => [
+        'field_name' => '',
+    ]
+];
+
+$order = [
+    'orderer_name' => [
+        'field_name' => 'имя',
+        'requiered' => 0
+    ],
+    'telephone' => [
+        'field_name' => 'номер телефона',
+        'requiered' => 0
+    ],
+    'address_cit' => [
+        'field_name' => 'город',
+        'requiered' => 1
+    ],
+    'address_pod' => [
+        'field_name' => 'подъезд',
+        'requiered' => 0
+    ],
+    'address_str' => [
+        'field_name' => 'улица',
+        'requiered' => 1
+    ],
+    'address_flo' => [
+        'field_name' => 'этаж',
+        'requiered' => 1
+    ],
+    'address_hou' => [
+        'field_name' => 'дом',
+        'requiered' => 1
+    ],
+    'address_fla' => [
+        'field_name' => 'этаж',
+        'requiered' => 1
+    ],
+    'comment' => [
+        'field_name' => 'комментарий',
+        'requiered' => 0
+    ],
+    'payment' => [
+        'field_name' => 'способ оплаты',
+        'requiered' => 1
+    ],
+];

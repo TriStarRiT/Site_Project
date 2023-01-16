@@ -24,7 +24,7 @@ require_once __DIR__ . '/libs/function.php';
 <body>
 <div class="telo">
     <div class="appl"><a href="#">
-    <img class="apple" src="image/apple.png"></a>
+    <img onclick="location.href='catolog.php'" class="apple" src="image/apple.png"></a>
     </div>
     <div class="marg">
         <div class="signin1">Войти</div> 
@@ -40,7 +40,7 @@ require_once __DIR__ . '/libs/function.php';
     </div>
 
     <div class="rasdelenie  marg">
-        <div class="otdelno"><label class="signin3_">Если у вас нет аккаунта,<br> нажмите <a href="#" class="signin3">зарегистрироваться</a></label></div>
+        <div class="otdelno"><label class="signin3_">Если у вас нет аккаунта,<br> нажмите <a href="registration.php" class="signin3">зарегистрироваться</a></label></div>
         <div>
             <button type="submit" class="signin4">Войти</button>
             <a href="/vosstanovlenie.html" class="signin3">Забыли пароль?</a>
@@ -58,7 +58,14 @@ require_once __DIR__ . '/libs/function.php';
             if (password_verify($fields_enter['password']['value'], $r)){
                 echo 'Вы вошли!';
                 $_SESSION['id'] = R::findOne('user', 'email = ?', [$fields_enter['email']['value']])['id'];
-                header('Location: /registration.php');
+                if (empty(R::findOne('user','id=?',[$_SESSION['id']])['order_id'])){
+                    order_create();
+                }
+                else{
+                    $_SESSION['pocket'] = R::findOne('user', 'id=?', [$_SESSION['id']])['order_id'];
+                    //echo $_SESSION['pocket'];
+                }
+                header('Location: catolog.php');
             }
             else {
                 echo '<p style="color:red; font-family: "Inter";">Неверная почта или пароль</p>';

@@ -23,7 +23,7 @@ require_once __DIR__ . '/libs/function.php';
 <body>
     
     <nav class="apple_folder">
-        <img onclick="" class="apple" src="image/apple.png">
+        <img onclick="location.href='catolog.php'" class="apple" src="image/apple.png">
         <nav class="reg_text_nav">
             <label class="reg_text">Регистрация</label>
             <form action="registration.php" method="POST">
@@ -32,10 +32,10 @@ require_once __DIR__ . '/libs/function.php';
                 <input class="input" type="text"name="fname" placeholder="Отчество">
                 <input class="input" type="email"name="email" placeholder="Адрес электронной почты">
                 <input class="input" type="password"name="password" placeholder="Пароль">
-                <input class="input" type="text"name="telephone" placeholder="Телефон">
+                <input class="input" type="tel"name="telephone" placeholder="Телефон">
                 <input class="input" type="date"name="dbirth" placeholder="Дата рождения">
                 <nav class="ent_and_reg">
-                    <label class="if">Если у вас уже есть аккаунт,<br> нажмите <a><span style="color:#D1A14B">войти</span></a> </label>
+                    <label class="if">Если у вас уже есть аккаунт,<br> нажмите <a href="sign_in.php"><span style="color:#D1A14B">войти</span></a> </label>
                         <button type="submit" class="but_reg">Зарегистрироваться</button>
                 </nav>
                 <?php
@@ -53,17 +53,19 @@ require_once __DIR__ . '/libs/function.php';
                                 echo 'ok';
                                 $password = $fields['password']['value'];
                                 $user = R::dispense('user');
-                                $user -> First_name = $fields['sname']['value'];
-                                $user -> Second_name = $fields['name']['value'];
-                                $user -> Fathers_name = $fields['fname']['value'];
+                                $user -> second_name = $fields['sname']['value'];
+                                $user -> first_name = $fields['name']['value'];
+                                $user -> fathers_name = $fields['fname']['value'];
                                 $user -> email = $fields['email']['value'];
                                 $user -> passsword = password_hash($password, PASSWORD_DEFAULT);
                                 $user -> telephone = $fields['telephone']['value'];
                                 $user -> date_of_birth = $fields['dbirth']['value'];
+                                $user -> permission = 'user';
                                 $user = R::store($user);
-                                $user = R::load('user',$id);
                                 $_SESSION['id'] = R::findOne('user', 'email = ?', [$fields['email']['value']])['id'];
-                                echo $_SESSION['id'];
+                                order_create();
+                                //debug($user);
+                                header('Location: catolog.php');
                             }
                         }
         ?>

@@ -1,0 +1,37 @@
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter-Regular.otf");
+}
+.main{
+    width:270px;
+    /*background-color: black;*/
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    
+}
+.image{
+    width:100px;
+    height:100px;
+}
+.line1{
+    border: 1px solid #FEDE9F;
+}
+.text{
+    color:#905E01;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    top:10px;
+    position: relative;
+}
+.col{
+    color:#905E01;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    top:10px;
+    position: relative;
+    margin-left:90px;
+}

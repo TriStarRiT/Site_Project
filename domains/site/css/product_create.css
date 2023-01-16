@@ -1,0 +1,52 @@
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter-Regular.otf");
+}
+.main{
+    width:800px;
+    margin-left:auto;
+    margin-right: auto;
+}
+.input_div{
+    margin-top:50px;
+}
+.input{
+    width:800px;
+    height:50px;
+    border-radius: 15px;
+    border-style: solid;
+
+    display: block;
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #D5B472;
+    border-radius: 20px;
+}
+.input_file{
+    width:800px;
+    height:50px;
+}
+.text_input{
+    color: #D48800;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+}
+.but_add_tov{
+    width:250px;
+    height: 60px;
+    border-radius: 20px;
+    border:none;
+    background-color: #D1A14B;
+    font-family: Inter;
+    font-size: 22px;
+    color:#fff;
+}

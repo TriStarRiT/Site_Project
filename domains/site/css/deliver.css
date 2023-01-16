@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter-Regular.otf");
+}
+.tabl{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.tabl1{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.but{
+    width:100%;
+    height:100%;
+}
+
+.main_2{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.pic{
+    width:200px;
+    height: 200px;
+}
