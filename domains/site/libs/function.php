@@ -2,7 +2,7 @@
 session_start();
 function debug($data){
     echo '
-    <nav style="margin-right:auto;">
+    <nav style="margin-right:auto; margin-left:auto;">
         <label style="color:red;">Ошибки:</label>
         <nav style="  width:300px; border: solid 1px red;">
             <div><pre style="color:red;">' . print_r($data, true) . '</pre></div>
@@ -41,9 +41,6 @@ function product_errors($data){
             $errors .= "<p style='width:100%; text-align: center'>Вы не заполнили поле {$data[$k]['field_name']}</p>";
         }
     }
-    if(R::findOne('product','name = ?',[$data['name']['value']])){
-        $errors .= "<p style='width:100%; text-align: center' >Этот товар уже существует </p>" ;
-    }
     return $errors;
 }
 
@@ -57,10 +54,7 @@ function main_errors($data){
     return $errors;
 }
 
-function to_pocket($a, $v){
-    if($_SESSION['pocket'] == ""){
-        $_SESSION['pocket'] = $v;
-    }
+function to_pocket($a){
     $c= R::getAll('SELECT * FROM pocket WHERE order_id="'.$_SESSION['pocket'].'" AND product_id="'.$a['id_tov']['value'].'"' );
     $id = $c['0']['id'];
     //debug($c);
@@ -122,6 +116,15 @@ function order($data){
     $order -> cost = $_SESSION['cost'];
     $order->stat = 'Заказан';
     //debug($order);
+    $a = R::findOne('user', 'id=?',[$_SESSION['id']])['order_id'];
+    $data = R::getAll('SELECT * FROM pocket WHERE order_id= "'.$a.'"');
+    for ($i = 0; $i < count($data); $i++) {
+        $id=$data[$i]['product_id'];
+        $ones = $data[$i]['ones'];
+        $product = R::load('product', $id);
+        $product->ones=R::findOne('product','id=?',[$data[$i]['product_id']])['ones'] -$ones;
+        R::store($product);
+    }
     R::store($order);
     order_create();
 }

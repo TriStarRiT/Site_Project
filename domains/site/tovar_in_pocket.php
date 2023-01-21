@@ -33,7 +33,7 @@ require_once __DIR__ . '/libs/function.php';
         $pic = R::findOne('product','id=?',[$id])['picture'];
         $name = R::findOne('product','id=?',[$id])['name'];
         $desc = R::findOne('product','id=?',[$id])['description'];
-        $cost = R::findOne('product','id=?',[$id])['_cost'];
+        $cost = R::findOne('product','id=?',[$id])['cost'];
         $cost_col = $cost * $ones;
         $cost_all = $cost_all + $cost_col;
         $_SESSION['cost'] = $cost_all;

@@ -8,12 +8,11 @@
     background-color: rgba(220, 204, 169, 0.26);;
     display:grid;
     grid-template-columns: 2fr 2fr 100fr;
-    cursor: pointer;
 }
 .line{
     background-color: #E9AC3C;
     width:30px;
-    height: 2px;
+    height: 3px;
     margin-top:10px;
     margin-left:20px;
 }
@@ -39,7 +38,8 @@
 .cat{
     width:300px;
     height:50px;
-    background-color: rgba(233, 172, 60, 0.24);;
+    background-color: rgba(233, 172, 60, 0.24);
+    border: 1px solid #E9AC3C;
 }
 #cat{
     opacity: 0;
@@ -65,5 +65,4 @@
     line-height: 27px;
     margin-top:8px;
     margin-left:20px;
-    cursor: pointer;
 }

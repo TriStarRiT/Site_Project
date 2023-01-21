@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Янв 16 2023 г., 12:49
+-- Время создания: Янв 21 2023 г., 16:00
 -- Версия сервера: 8.0.30
 -- Версия PHP: 7.2.34
 
@@ -54,7 +54,8 @@ INSERT INTO `order` (`id`, `user_id`, `stat`, `date`, `telephone`, `address_cit`
 (3, 1, 'Не готов', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 2, 'Завершён', '15th January 2023', 79229619507, 'Люберцы', '6', 'Шоссейная', 8, 10, 210, 'Покажи жопу', 'картой', 897),
 (5, 2, 'Завершён', '15th January 2023', 79229619507, 'Люберцы', '', 'Шоссейная', 8, 10, 210, 'Покажи жопу', 'картой', 470),
-(6, 2, 'Не готов', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(6, 2, 'Завершён', '20th January 2023', 79229619507, 'Киров', '', 'Ленина', 5, 10, 14, 'Ещё пакетик пожалуйста', 'картой', 326.6),
+(10, 2, 'Не готов', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -75,15 +76,8 @@ CREATE TABLE `pocket` (
 --
 
 INSERT INTO `pocket` (`id`, `user_id`, `order_id`, `product_id`, `ones`) VALUES
-(1, 1, 1, 2, 3),
-(2, 1, 1, 4, 1),
-(3, 1, 1, 1, 3),
-(4, 1, 2, 1, 7),
-(5, 2, 4, 4, 5),
-(6, 2, 4, 1, 3),
-(7, 2, 4, 3, 2),
-(8, 2, 5, 2, 2),
-(9, 2, 5, 1, 2);
+(1, 2, 6, 1, 2),
+(2, 2, 6, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -95,12 +89,9 @@ CREATE TABLE `product` (
   `id` int UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `description` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `expiration_date` date DEFAULT NULL,
   `type_of_product` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `_number_of_order` double DEFAULT NULL,
-  `_cost` decimal(10,2) DEFAULT NULL,
-  `_ones` int UNSIGNED DEFAULT NULL,
-  `quality_by_expiration_date` tinyint UNSIGNED DEFAULT NULL,
+  `cost` decimal(10,2) DEFAULT NULL,
+  `ones` int UNSIGNED DEFAULT NULL,
   `picture` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
@@ -108,11 +99,9 @@ CREATE TABLE `product` (
 -- Дамп данных таблицы `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `description`, `expiration_date`, `type_of_product`, `_number_of_order`, `_cost`, `_ones`, `quality_by_expiration_date`, `picture`) VALUES
-(1, 'Молоко 1л', 'Описание отсутствует', '2023-01-19', 'Молочные продукты', 456231156, '120.00', 5, 1, '9451640milk.png'),
-(2, 'Творог 5% 750гр', 'Описание отсутствует', '2023-01-18', 'Молочные продукты', 456231156, '115.00', 7, 1, '121854963265d37eda711ea80e0000a482493fb_dcc14a4e3aac11eb80c1000a482493fb-768x768.jpg'),
-(3, 'Майонез Махеев', 'Майонез \"Махеев\" Провансаль с лимонным соком 380гр', '2023-01-25', 'Соусы', 456231156, '56.00', 12, 1, '1695132mayo.jpg'),
-(4, 'Колбаса Вязанка', 'Стародворские колбасы колбаса вязанка классическая вареная', '2023-02-09', 'Мясные изделия', 456126165465, '85.00', 13, 1, '8737781colbosa.jpg');
+INSERT INTO `product` (`id`, `name`, `description`, `type_of_product`, `cost`, `ones`, `picture`) VALUES
+(1, 'Молоко 2%', 'Молоко питьевое пастеризованное 2,0% 900мл', 'Молочные продукты', '78.95', 16, '8178862milk.png'),
+(2, 'Нарезка 115г', 'Карбонад копчено-вареный По-Егорьевски Егорьевская КГФ, нарезка, 115 г', 'Мясные продукты', '84.35', 34, '7057477vetchina.jpg');
 
 -- --------------------------------------------------------
 
@@ -139,7 +128,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `second_name`, `first_name`, `fathers_name`, `email`, `passsword`, `telephone`, `date_of_birth`, `permission`, `order_id`) VALUES
 (1, 'Кашин', 'Алексей', 'Владимирович', 'alex-kashin-02@mail.ru', '$2y$10$RpFMXZCyMpWxXCb8o4l2i.J4sLnlbUixMfCWmdo.wqIi9vuSw.Jk6', 79195237655, '2002-10-28', 'user', 3),
-(2, 'Сторощук', 'Сергей', 'Игоревич', 'Lordus604@gmail.com', '$2y$10$M/h7xP5BZOaPt7V0/Cr8dOZkN63NZ3LJOp.JjzXnJCgrfFxJZKYBa', 79229619507, '2023-01-07', 'user', 6);
+(2, 'Сторощук', 'Сергей', 'Игоревич', 'Lordus604@gmail.com', '$2y$10$M/h7xP5BZOaPt7V0/Cr8dOZkN63NZ3LJOp.JjzXnJCgrfFxJZKYBa', 79229619507, '2023-01-07', 'user', 10);
 
 --
 -- Индексы сохранённых таблиц
@@ -182,19 +171,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `pocket`
 --
 ALTER TABLE `pocket`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `user`

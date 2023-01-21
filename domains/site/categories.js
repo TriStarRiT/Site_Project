@@ -15,9 +15,11 @@ function check_cat(){
 
 function cat_open(){
     document.getElementById('cat').style='opacity:1;';
+    document.getElementById("ones").disabled = true;
 }
 function cat_close(){
     document.getElementById('cat').style='opacity:0;';
+    document.getElementById("ones").disabled = true;
 }
 function arrow_open(){
     document.getElementById('arrow').className='arrow_open';

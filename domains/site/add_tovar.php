@@ -5,41 +5,6 @@ require "libs/db.php";
 require_once __DIR__ . '/libs/data.php';
 require_once __DIR__ . '/libs/function.php';
 
-if (!empty($_POST)) {
-    $products = load($products);
-
-    //debug($_POST);
-    if ($errors = product_errors($products)) {
-        //debug($errors);
-    } else {
-        $ran = rand(0000000, 9999999);
-        $put = 'image/prod/';
-        if (isset($_FILES['filename']['name']) && ($_FILES['filename']['name'] != '')) {
-            $name = $_FILES['filename']['name'];
-            move_uploaded_file($_FILES['filename']['tmp_name'], $put . $ran . $name);
-            $namefile = $ran . $name;
-            $products['picture']['value'] = trim($namefile);
-            //load_file($product);
-            //debug($product);
-
-            $product = R::dispense('product');
-            $product->name = $products['name']['value'];
-            $product->description = $products['description']['value'];
-            $product->expiration_date = $products['expiration_date']['value'];
-            $product->type_of_product = $products['type_of_product']['value'];
-            $product->Number_of_order = $products['number_of_order']['value'];
-            $product->Cost = $products['cost']['value'];
-            $product->Ones = $products['ones']['value'];
-            if ($products['expiration_date']['value'] < date('Y/m/d')) {
-                $product->quality_by_expiration_date = true;
-            }
-            $product->picture = $products['picture']['value'];
-            $product = R::store($product);
-            $product = R::load('product', $id);
-        }
-    }
-}
-
 
 
 ?>
@@ -55,7 +20,7 @@ if (!empty($_POST)) {
 </head>
 <body>
         <div class="main">
-            <form action="add_tovar.php" method="POST" enctype="multipart/form-data">
+            <form id="add_tov" action="add_tovar.php" method="POST" enctype="multipart/form-data">
                 <div class="input_div">
                     <label class="text_input">Название</label>
                     <input type="text" name="name" class="input"  placeholder="Название">
@@ -63,14 +28,15 @@ if (!empty($_POST)) {
 
                 <div class="input_div">
                     <label class="text_input">Описание</label>
-                    <input type="text" name="description" class="input" placeholder="Описание">
+                    <input type="text" name="description" class="input" placeholder="Описание" pattern="\D{,80}">
                 </div>
 
+                <!--
                 <div class="input_div">
                     <label class="text_input">Срок годности</label>
                     <input type="date" name="expiration_date" class="input" placeholder="Срок годности">
                 </div>
-
+                -->
                 <div class="input_div">
                     <select name="type_of_product" class="input">
                         <option value="Молочные продукты">Молочные продукты</option>
@@ -95,15 +61,17 @@ if (!empty($_POST)) {
                     <label class="text_input">Тип продукта</label>
                     <input type="text" name="type_of_product" class="input" placeholder="Тип продукта">
                 </div>
--->
+                -->
+                <!--
                 <div class="input_div">
                     <label class="text_input">Номер заказа</label>
                     <input type="text" name="number_of_order" class="input" placeholder="Номер заказа">
                 </div>
+                -->
 
                 <div class="input_div">
                     <label class="text_input">Цена</label>
-                    <input type="number" name="cost" class="input" placeholder="Цена">
+                    <input type="number" name="cost" class="input" placeholder="Цена" pattern="[0-9]+([\.,][0-9]+)?" step="0.01">
                 </div>
 
                 <div class="input_div">
@@ -117,6 +85,53 @@ if (!empty($_POST)) {
                 </div>
                 <button type="submit" class="but_add_tov">Создать товар</button>
             </form>
+        
+        <?php
+        if (!empty($_POST)) {
+            $products = load($products);
+            
+            //debug($_POST);
+             if ($errors = product_errors($products)) {
+                debug($errors);
+            } else {
+                $ran = rand(0000000, 9999999);
+                $put = 'image/prod/';
+                if (isset($_FILES['filename']['name']) && ($_FILES['filename']['name'] != '')) {
+                    if(R::findOne('product','name = ?',[$products['name']['value']])){
+                        $id = R::findOne('product', 'name = ?', [$products['name']['value']])['id'];
+                        $product = R::load('product', $id);
+                        $ones = R::findOne('product', 'name = ?', [$products['name']['value']])['ones'];
+                        $product->ones = $ones + $products['ones']['value'];
+                        R::store($product);
+                    }
+                    else {
+                        $name = $_FILES['filename']['name'];
+                        move_uploaded_file($_FILES['filename']['tmp_name'], $put . $ran . $name);
+                        $namefile = $ran . $name;
+                        $products['picture']['value'] = trim($namefile);
+                        //load_file($product);
+                        //debug($product);
+        
+                        $product = R::dispense('product');
+                        $product->name = $products['name']['value'];
+                        $product->description = $products['description']['value'];
+                        //$product->expiration_date = $products['expiration_date']['value'];
+                        $product->type_of_product = $products['type_of_product']['value'];
+                        //$product->Number_of_order = $products['number_of_order']['value'];
+                        $product->cost = $products['cost']['value'];
+                        $product->ones = $products['ones']['value'];
+                        $product->picture = $products['picture']['value'];
+                        $product = R::store($product);
+                        $product = R::load('product', $id);
+                    }
+                }
+                else{
+                    $errors .="<p style='width:100%; text-align: center'>Вы не загрузили картинку</p>";
+                    debug($errors);
+                }
+            }
+        }
+        ?>
         </div>
-</body>
+    </body>
 </html>

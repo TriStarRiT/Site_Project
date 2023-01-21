@@ -57,7 +57,7 @@ $products = [
     ],
     'expiration_date' => [
         'field_name' => 'Срок годности',
-        'requiered'=> 1
+        'requiered'=> 0
     ],
     'type_of_product'=>[
         'field_name' => 'Тип продукта',
@@ -65,7 +65,7 @@ $products = [
     ],
     'number_of_order' => [
         'field_name' => 'Номер заказа',
-        'requiered'=> 1
+        'requiered'=> 0
     ],
     /*'size'=>[
         'field_name' => 'Размер продукта',
@@ -100,6 +100,12 @@ $products = [
 $add_to_pocket = [
     'id_tov' =>[
         'field_name'=>'',
+    ]
+];
+
+$search = [
+    'search' => [
+        'field_name' => '',
     ]
 ];
 

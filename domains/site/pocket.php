@@ -109,6 +109,16 @@ if (!empty($_POST) && !isset($_POST['action_down']) && !isset($_POST['action_up'
                 <nav class="main_content">
                     <?php
                     $a = R::findOne('user', 'id=?',[$_SESSION['id']])['order_id'];
+                    if (empty($a)){
+                        echo '
+                        <div ">
+                            <div class="line1"></div>   
+                            <div style="margin-top:200px; margin-left:300px">
+                                <p class="usual_text">Здесь пока ничего нет...</p>
+                            </div>  
+                        </div>
+                        ';
+                    }
                     //echo $a;
                     $data = R::getAll('SELECT * FROM pocket WHERE order_id= "'.$a.'"');
                     //echo debug($data);
@@ -121,7 +131,7 @@ if (!empty($_POST) && !isset($_POST['action_down']) && !isset($_POST['action_up'
                         $pic = R::findOne('product','id=?',[$id])['picture'];
                         $name = R::findOne('product','id=?',[$id])['name'];
                         $desc = R::findOne('product','id=?',[$id])['description'];
-                        $cost = R::findOne('product','id=?',[$id])['_cost'];
+                        $cost = R::findOne('product','id=?',[$id])['cost'];
                         $cost_col = $cost * $ones;
                         $cost_all = $cost_all + $cost_col;
                         $_SESSION['cost'] = $cost_all;

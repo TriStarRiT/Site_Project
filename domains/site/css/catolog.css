@@ -2,6 +2,13 @@
     font-family: "Inter";
     src: url("/fonts/Inter-Regular.otf");
 }
+.cat_main1{
+    display:grid;
+    grid-template-columns: 25% 75%;
+    width:1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .body{
     margin:0;
     padding:0;
@@ -14,7 +21,7 @@
 .header_container{
     width:1500px;
     height:100px;
-    background-color: whitesmoke;
+    background-color: white;
     margin-left:auto;
     margin-right:auto;
     display:grid;
@@ -41,7 +48,6 @@
     border-radius: 10px;
     border:2px;
     border: #DCCCA9 dashed 2px;
-    cursor: pointer;
     text-decoration: none;
 }
 .header_account_image{
@@ -61,7 +67,7 @@
 .header_container_lower{
     width:1500px;
     height:100px;
-    background-color: whitesmoke;
+    background-color: white;
     margin-left:auto;
     margin-right:auto;
     display:grid;
@@ -102,6 +108,7 @@ textarea:focus, input:focus
     border-radius: 10px;
     border:2px;
     border: #DCCCA9 dashed 2px;
+    background-color: #fff;
 }
 
 .header_account_1{
@@ -121,7 +128,6 @@ textarea:focus, input:focus
     margin-right: 10px;
     height:40px;
     margin-top:25px;
-    cursor: pointer;
     text-decoration: none;
 }
 .enter_text{
@@ -133,7 +139,7 @@ textarea:focus, input:focus
 
 /*НАЧАЛО КАТАЛОГА*/
 .catalog_main{
-    margin-top: 100px;
+    margin-top: 0px;
     display: grid;
     grid-template-columns: 2fr 2fr 2fr;
     width:1000px;
@@ -144,15 +150,15 @@ textarea:focus, input:focus
     margin-top: 20px;
     width:250px;
     height:400px;
-    background-color: whitesmoke;
+    background-color: rgba(255, 255, 255, 1);
     border-radius:10px;
+    border: rgba(152, 101, 0, 0.2) solid 1px;
     display:grid;
     grid-template-rows: 10fr 1fr 3fr 1fr 2fr;
 }
 .prod_pic{
     width:200px;
     height:200px;
-    background-color: black;
     margin-left:25px;
     top:20px;
     position:relative;
@@ -185,5 +191,12 @@ textarea:focus, input:focus
     line-height: 27px;
 }
 .tov_icon{
-    margin-left:20px;
+    margin-left:10px;
+}
+.ones_text_div{
+    /*margin-left:5px;*/
+}
+.ones_text{
+    font-family: 'Inter';
+    font-size: 14px;
 }

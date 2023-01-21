@@ -35,6 +35,13 @@ if(isset($_POST['end'])){
     //echo $a;
     if(empty($_SESSION['order'])){
         $data = R::getAll('SELECT * FROM dbsite.order WHERE stat= "Заказан"');
+        if(empty($data)){
+            echo '
+            <div>
+                <h1>Заказов пока нет, ожидайте...<h2>
+            </div>
+            ';
+        }
         //echo debug($data);
         $cost_all=0;
         for($i=0;$i<count($data);$i++){
@@ -112,7 +119,7 @@ if(isset($_POST['end'])){
             $pic = R::findOne('product', 'id=?', [$id])['picture'];
             $name = R::findOne('product', 'id=?', [$id])['name'];
             $desc = R::findOne('product', 'id=?', [$id])['description'];
-            $cost = R::findOne('product', 'id=?', [$id])['_cost'];
+            $cost = R::findOne('product', 'id=?', [$id])['cost'];
             $cost_col = $cost * $ones;
             $cost_all = $cost_all + $cost_col;
             $_SESSION['cost'] = $cost_all;
@@ -122,7 +129,7 @@ if(isset($_POST['end'])){
                 <img src="/image/prod/'.$pic.'" class="pic">
                 <div>
                     <p>'.$name.'</p>
-                    <p>'.$ones.' штук</p>
+                    <p>'.$ones.' шт.</p>
                     <br>
                     <p>'.$cost.' ₽</p>
                 </div>
@@ -134,7 +141,7 @@ if(isset($_POST['end'])){
         echo '
         <hr>
             <p>Метод оплаты: '.$pay.'</p>
-            <h1>К оплате: '.$cost.' ₽</h1>
+            <h1>К оплате: '.$cost_all.' ₽</h1>
         <hr>
         <form action="deliver.php" method="POST">
             <input type="submit" name="end" value="Закрыть заказ">
