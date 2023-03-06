@@ -129,11 +129,15 @@ textarea:focus, input:focus
     height:40px;
     margin-top:25px;
     text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+/*
 .enter_text{
     margin-top: 5px;
 }
-
+*/
 
 
 

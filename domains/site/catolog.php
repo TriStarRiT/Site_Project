@@ -40,9 +40,11 @@ if (!empty($_POST) && !isset($_POST['ones2'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="css/catolog.css">
     <link rel="stylesheet" href="css/categories.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
     <title>Document</title>
 </head>
 <body>
@@ -50,26 +52,27 @@ if (!empty($_POST) && !isset($_POST['ones2'])) {
     <header class="header_top"> 
         <nav class="header_container">
             <div>
-                <img onclick="location.href='catolog.php'" class="logo_image" src="image/JjRfzsSZ5gU 1.png">
+                <img onclick="location.href='catolog.php'" class="logo_image cursor_pointer" src="image/JjRfzsSZ5gU 1.png">
             </div>
-            <div class="header_text">На главную</div>
-            <div class="header_text">О нас</div>
-            <div class="header_text">Контакты</div>
-            <div class="header_text">Помощь</div>
+            <div class="header_text"> <label class="cursor_pointer header_text1">На главную</label></div>
+            <div class="header_text"><label class="cursor_pointer header_text1">О нас</label></div>
+            <div class="header_text"><label class="cursor_pointer header_text1">Контакты</label></div>
+            <div class="header_text"><label class="cursor_pointer header_text1">Помощь</label></div>
             <?php
             if(($_SESSION['id'] == "") ){
                 echo '
                 <nav class="header_account_1">
-                    <a href="sign_in.php" class="enter_but"><p class="enter_text">Вход</p></a>
-                    <a href="registration.php" class="enter_but"><p class="enter_text">Регистрация</p></a>
+                    <a href="sign_in.php" class="enter_but cursor_pointer"><p class="enter_text">Вход</p></a>
+                    <a href="registration.php" class="enter_but cursor_pointer"><p class="enter_text">Регистрация</p></a>
                 </nav>
                 ';
             }
             else{
-                echo '<a href="Lich_cab.php" class="header_account">
+                echo'<a href="Lich_cab.php" class="header_account header_account_2 hov_but">
                 <image class="header_account_image" src="image/Vector.png"></image>
                 <div class="header_account_text">Личный кабинет</div>
                 </a>';
+
             }
 
             ?>
@@ -80,19 +83,39 @@ if (!empty($_POST) && !isset($_POST['ones2'])) {
                 <div class="text-field">
                     <input class="search" name="search" type="text" placeholder="Я ищу...">
                 </div>
-                <button type="submit" class="search_button">
+                <button type="submit" class="search_button cursor_pointer centre hov_but">
                     <img class="header_account_image" src="image/search.png">
-                    <div  value="Поиск" class="header_account_text" style="margin-top:8px;">Поиск</div>
+                    <div  value="Поиск" class="header_account_text cursor_pointer">Поиск</div>
                 </button>
-                <div onclick="location.href='pocket.php'" class="header_account">
-                    <img class="header_account_image" src="image/pocket.png">
-                    <label class="header_account_text" style="margin-top:13px;">Корзина</label>
-                </div>
+                <?php
+                $perm=R::findOne('user', 'id=?',[$_SESSION['id']])['permission'];
+                switch($perm){
+                    case "user":
+                        echo '<div onclick="location.href="pocket.php" class="header_account cursor_pointer hov_but">
+                        <img class="header_account_image" src="image/pocket.png">
+                        <label class="header_account_text cursor_pointer" >Корзина</label>
+                    </div>';
+                        break;
+                    case "admin":
+                        echo '<a href="add_tovar.php" class="header_account header_account_2 hov_but add_tov_but">
+                        <img class="header_account_image" src="image/pocket.png">
+                        <label class="header_account_text cursor_pointer" >Добавить &#160&#160товар</label>
+                        </a>';
+                        break;
+                    case "deliverer":
+                        echo '<a href="deliver.php" class="header_account header_account_2 hov_but add_tov_but">
+                        <img class="header_account_image" src="image/pocket.png">
+                        <label class="header_account_text cursor_pointer" >Начать работу</label>
+                        </a>';
+                        break;
+                    }
+                ?>
+                <!--
                 <div class="header_account">
                     <img class="header_account_image" src="image/heart.png">
                     <label class="header_account_text">&nbsp &nbsp Мои<br>желания
                     </label>
-                </div>
+                </div>-->
             </nav>
             </form>
         </div>

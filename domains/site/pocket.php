@@ -51,30 +51,30 @@ if (!empty($_POST) && !isset($_POST['action_down']) && !isset($_POST['action_up'
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/pocket.css">
+    <link rel="stylesheet" href="pocket.css">
     <title>Document</title>
 </head>
 <body>
 <nav class="header_top"> 
         <nav class="header_container">
             <div>
-                <img onclick="location.href='catolog.php'" class="logo_image" src="image/JjRfzsSZ5gU 1.png">
+                <img onclick="location.href='catolog.php'" class="logo_image cursor_pointer" src="image/JjRfzsSZ5gU 1.png">
             </div>
-            <div class="header_text">На главную</div>
-            <div class="header_text">О нас</div>
-            <div class="header_text">Контакты</div>
-            <div class="header_text">Помощь</div>
+            <div class="header_text"> <label class="cursor_pointer header_text1">На главную</label></div>
+            <div class="header_text"><label class="cursor_pointer header_text1">О нас</label></div>
+            <div class="header_text"><label class="cursor_pointer header_text1">Контакты</label></div>
+            <div class="header_text"><label class="cursor_pointer header_text1">Помощь</label></div>
             <?php
             if(($_SESSION['id'] == "") ){
                 echo '
                 <nav class="header_account_1">
-                    <a href="sign_in.php" class="enter_but"><p class="enter_text">Вход</p></a>
-                    <a href="registration.php" class="enter_but"><p class="enter_text">Регистрация</p></a>
+                    <a href="sign_in.php" class="enter_but cursor_pointer"><p class="enter_text">Вход</p></a>
+                    <a href="registration.php" class="enter_but cursor_pointer "><p class="enter_text">Регистрация</p></a>
                 </nav>
                 ';
             }
             else{
-                echo '<a href="Lich_cab.php" class="header_account">
+                echo '<a href="Lich_cab.php" class="header_account header_account_2 hov_but">
                 <image class="header_account_image" src="image/Vector.png"></image>
                 <div class="header_account_text">Личный кабинет</div>
                 </a>';
@@ -86,19 +86,20 @@ if (!empty($_POST) && !isset($_POST['action_down']) && !isset($_POST['action_up'
             <div class="text-field">
                 <input class="search" type="text" placeholder="Я ищу...">
             </div>
-            <button class="search_button">
+            <button class="search_button cursor_pointer centre hov_but">
                 <img class="header_account_image" src="image/search.png">
-                <label class="header_account_text" style="margin-top:8px;">Поиск</label>
+                <label class="header_account_text cursor_pointer">Поиск</label>
             </button>
-            <div onclick="location.href='pocket.php'" class="header_account">
+            <div onclick="location.href='pocket.php'" class="header_account cursor_pointer hov_but">
                 <img class="header_account_image" src="image/pocket.png">
-                <label class="header_account_text" style="margin-top:13px;">Корзина</label>
+                <label class="header_account_text cursor_pointer" >Корзина</label>
             </div>
+            <!-- 
             <div class="header_account">
                 <img class="header_account_image" src="image/heart.png">
                 <label class="header_account_text">&nbsp &nbsp Мои<br>желания
                 </label>
-            </div>
+            </div>-->
         </nav>
 </nav>
     <nav class="color">
@@ -211,17 +212,19 @@ if (!empty($_POST) && !isset($_POST['action_down']) && !isset($_POST['action_up'
                     <label class="usual_text">Хотите заказать эти продукты?</label>
                 </nav>
 
-                <form action="order.php" method="POST">
+                <form action="order.php" method="POST"><!--
                 <button class="big_but">
                     <nav>
-                        <img style="margin:50px" src="/image/pic_zac.png">
+                        
                     </nav>
                     <nav style="margin-top:20px;">
                         <label class="bold_text">Заказать все <br> продукты из корзины</label>
                     </nav>
                     
-                </button>
-                <input class="big_but" type="submit" formaction="/pocket.php" name="order" value="Заказать все продукты из корзины">
+                </button>-->
+                <label for="but_tex" class="bold_text big_but cursor_pointer"><div><img style="margin:50px" src="/image/pic_zac.png"></div><div>Заказать все <br> продукты из корзины</div>
+                <input class="but_text bold_text " type="submit" formaction="/pocket.php" name="order" id="but_tex" ></label> <!--value="Заказать все продукты из корзины"-->
+
                 </form>
                 
             </nav>
