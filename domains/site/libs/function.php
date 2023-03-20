@@ -3,7 +3,7 @@ session_start();
 function debug($data){
     echo '
     <nav style="margin-right:auto; margin-left:auto;">
-        <label style="color:red;">Ошибки:</label>
+        <label style="color:red;">Что-то пошло не так:</label>
         <nav style="  width:300px; border: solid 1px red;">
             <div><pre style="color:red;">' . print_r($data, true) . '</pre></div>
         </nav>
@@ -57,20 +57,24 @@ function main_errors($data){
 function to_pocket($a){
     $c= R::getAll('SELECT * FROM pocket WHERE order_id="'.$_SESSION['pocket'].'" AND product_id="'.$a['id_tov']['value'].'"' );
     $id = $c['0']['id'];
-    //debug($c);
-    if(!empty($c) ){
-        $pocket = R::load('pocket', $id);
-        $pocket->ones = $c[0]['ones']+1;
-        R::store($pocket);
-        
+    if ($c['0']['ones']<R::findOne('product','id=?',[$a['id_tov']['value']])['ones']){
+        if(!empty($c) ){
+            $pocket = R::load('pocket', $id);
+            $pocket->ones = $c[0]['ones']+1;
+            R::store($pocket);
+            
+        }
+        else{
+            $pocket = R::dispense('pocket');
+            $pocket -> user_id = $_SESSION['id'];
+            $pocket -> order_id = $_SESSION['pocket'];
+            $pocket -> product_id = $a['id_tov']['value'];
+            $pocket -> ones = 1;
+            R::store($pocket);
+        }
     }
     else{
-        $pocket = R::dispense('pocket');
-        $pocket -> user_id = $_SESSION['id'];
-        $pocket -> order_id = $_SESSION['pocket'];
-        $pocket -> product_id = $a['id_tov']['value'];
-        $pocket -> ones = 1;
-        R::store($pocket);
+        echo '<script>alert("В корзине уже максимальное количество этих продуктов")</script>';
     }
 
     /*echo $_SESSION['pocket'].'  ';

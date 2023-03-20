@@ -49,15 +49,15 @@ if (!empty($_POST) && !isset($_POST['ones2'])) {
 </head>
 <body>
 
-    <header class="header_top"> 
+<header class="header_top"> 
         <nav class="header_container">
             <div>
-                <img onclick="location.href='catolog.php'" class="logo_image cursor_pointer" src="image/JjRfzsSZ5gU 1.png">
+                <img onclick="location.href='glavnaia.php'" class="logo_image cursor_pointer" src="image/JjRfzsSZ5gU 1.png">
             </div>
-            <div class="header_text"> <label class="cursor_pointer header_text1">На главную</label></div>
-            <div class="header_text"><label class="cursor_pointer header_text1">О нас</label></div>
-            <div class="header_text"><label class="cursor_pointer header_text1">Контакты</label></div>
-            <div class="header_text"><label class="cursor_pointer header_text1">Помощь</label></div>
+            <div class="header_text"><a href="glavnaia.php" class="cursor_pointer header_text1">На главную</a></div>
+            <div class="header_text"><a href="catolog.php" class="cursor_pointer header_text1">Каталог</a></div>
+            <div class="header_text"><a href="aboutus.php" class="cursor_pointer header_text1">О нас</a></div>
+            <div class="header_text"><a href="help.php" class="cursor_pointer header_text1">Помощь</a></div>
             <?php
             if(($_SESSION['id'] == "") ){
                 echo '
@@ -91,10 +91,10 @@ if (!empty($_POST) && !isset($_POST['ones2'])) {
                 $perm=R::findOne('user', 'id=?',[$_SESSION['id']])['permission'];
                 switch($perm){
                     case "user":
-                        echo '<div onclick="location.href="pocket.php" class="header_account cursor_pointer hov_but">
+                        echo '<a href="pocket.php" class="header_account cursor_pointer hov_but">
                         <img class="header_account_image" src="image/pocket.png">
                         <label class="header_account_text cursor_pointer" >Корзина</label>
-                    </div>';
+                    </a>';
                         break;
                     case "admin":
                         echo '<a href="add_tovar.php" class="header_account header_account_2 hov_but add_tov_but">
@@ -102,20 +102,8 @@ if (!empty($_POST) && !isset($_POST['ones2'])) {
                         <label class="header_account_text cursor_pointer" >Добавить &#160&#160товар</label>
                         </a>';
                         break;
-                    case "deliverer":
-                        echo '<a href="deliver.php" class="header_account header_account_2 hov_but add_tov_but">
-                        <img class="header_account_image" src="image/pocket.png">
-                        <label class="header_account_text cursor_pointer" >Начать работу</label>
-                        </a>';
-                        break;
                     }
                 ?>
-                <!--
-                <div class="header_account">
-                    <img class="header_account_image" src="image/heart.png">
-                    <label class="header_account_text">&nbsp &nbsp Мои<br>желания
-                    </label>
-                </div>-->
             </nav>
             </form>
         </div>
@@ -234,8 +222,8 @@ if (!empty($_POST) && !isset($_POST['ones2'])) {
 
             </div>
             <div class="icona">
-                <a href="glavnaia.html"><img src="/image/footerapple.png" alt="FOODD icon"></a>
-                <div class="foot1">© FOODD, 2023</div>
+                <a href="glavnaia.php"><img src="/image/footerapple.png" alt="FOODD icon"></a>
+                <div class="foot1">© foodd, 2023</div>
             </div>
             <div>
                 <div class="foot2">Помощь</div>

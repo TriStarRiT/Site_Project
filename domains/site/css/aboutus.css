@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter-Regular.otf");
+    }
+body {margin: 0;
+    padding: 0;
+}
+body::-webkit-scrollbar {
+    width: 10px;               /* ширина scrollbar */
+}
+body::-webkit-scrollbar-track {
+    background: rgb(251 249 245);        /* цвет дорожки */
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #905e01c5;    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */
+    border: 3px solid rgb(251 249 245);  /* padding вокруг плашки */
+}
+body::-webkit-scrollbar-thumb:hover{
+    border: 1px solid rgb(251 249 245);
+}
+body::-webkit-scrollbar-thumb:focus{
+    border: 1px solid rgb(251 249 245);
+}
+
+.telo{
+    margin: 50px 0;   
+}
+.about1{
+    height: 709px;
+    background-image: url("/image/about_us.png");
+}
+.about1_5{
+    width: 536px;
+    height: 320px;
+    margin-left: -23px;
+    padding-top: 307px;
+    text-align: right;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 87px;
+    line-height: 70px;
+
+    color: #F1CB00;
+    text-shadow: 4px 4px 4px #AE5E00;
+}
+.about2{
+    height: 140px;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    text-align: center;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 70px;
+    
+    color: #FFE600;
+    text-shadow: 3px 3px 4px #FF7A00;
+}
+.about3{
+    padding: 30px 160px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 54px;
+    
+    color: #CE8D00;
+
+    background: #FFEDC8;
+}

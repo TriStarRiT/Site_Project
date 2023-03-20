@@ -70,5 +70,16 @@
     width:800px;
     height: 550px;
     background-color: #905E01;
-    
+}
+.but_exit{
+    width:300px;
+    height:50px;
+    margin-top:100px;
+    background-color: rgba(255, 245, 224, 1);
+    border: #DCCCA9 solid 2px;
+    filter: drop-shadow(3px 4px 4px rgba(0, 0, 0, 0.2));
+    border-radius: 10px;
+}
+.but_exit:hover{
+    filter: drop-shadow(-1px -1px 4px rgba(0, 0, 0, 0.2));
 }

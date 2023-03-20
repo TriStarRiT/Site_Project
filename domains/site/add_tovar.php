@@ -1,9 +1,9 @@
 <?php
 
-require "libs/db.php";
+require "..//libs/db.php";
 
-require_once __DIR__ . '/libs/data.php';
-require_once __DIR__ . '/libs/function.php';
+require_once __DIR__ . '../libs/data.php';
+require_once __DIR__ . '../libs/function.php';
 
 
 

@@ -18,6 +18,10 @@ if(isset($_POST['end'])){
 
 }
 
+if(isset($_POST['exit'])){
+    $_SESSION['id'] = '';
+    header('Location: glavnaia.php');
+}
 ?>
 
 
@@ -153,5 +157,9 @@ if(isset($_POST['end'])){
     
     
     ?>
+    <div style="display:flex; justify-content: center;">
+        <form method="POST" action="deliver.php">
+        <input name="exit" style="width:500px; height:100px; font-size:20px" type="submit" value="Закончить работу">
+    </div>
 </body>
 </html>

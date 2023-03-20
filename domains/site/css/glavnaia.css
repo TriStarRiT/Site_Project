@@ -37,7 +37,7 @@ body::-webkit-scrollbar-thumb:focus{
 }
 .flex1{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .flex1_{
 margin-top: 30px;}
@@ -136,7 +136,18 @@ margin-top: 30px;}
 }
 .sale_product{
     background: white;
-    border-radius: 25px;
+    height: 293px;
+    margin-top: -56px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    padding: 0;
+    border: none;
+}
+.img_size{
+    height: 273px;
+    width: 219px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 .sale_product:hover{
     box-shadow: 0 0 5px rgba(122,122,122,0.5);

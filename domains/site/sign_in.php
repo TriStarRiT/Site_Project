@@ -43,7 +43,7 @@ require_once __DIR__ . '/libs/function.php';
         <div class="otdelno"><label class="signin3_">Если у вас нет аккаунта,<br> нажмите <a href="registration.php" class="signin3">зарегистрироваться</a></label></div>
         <div>
             <button type="submit" class="signin4">Войти</button>
-            <a href="/vosstanovlenie.html" class="signin3">Забыли пароль?</a>
+            <a href="/vosstanovlenie.php" class="signin3">Забыли пароль?</a>
         </div>
     </div>
 
@@ -65,7 +65,13 @@ require_once __DIR__ . '/libs/function.php';
                     $_SESSION['pocket'] = R::findOne('user', 'id=?', [$_SESSION['id']])['order_id'];
                     //echo $_SESSION['pocket'];
                 }
-                header('Location: catolog.php');
+                $perm=R::findOne('user', 'id=?',[$_SESSION['id']])['permission'];
+                if ($perm=="deliverer"){
+                    header('Location: deliver.php');
+                }
+                else{
+                    header('Location: glavnaia.php');
+                }
             }
             else {
                 echo '<p style="color:red; font-family: "Inter";">Неверная почта или пароль</p>';

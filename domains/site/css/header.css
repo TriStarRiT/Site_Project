@@ -44,6 +44,9 @@ a{
     font-style: normal;
     font-weight: 400;
 }
+.header_text1{
+    color: inherit;
+}
 .header_text1:hover{
     color: #905E01;
 }

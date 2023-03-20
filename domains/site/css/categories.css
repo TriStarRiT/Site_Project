@@ -2,6 +2,9 @@
     font-family: "Inter";
     src: url("/fonts/Inter-Regular.otf");
 }
+.cat_cont{
+    width:300px;
+}
 .cat_main{
     width:300px;
     height:50px;

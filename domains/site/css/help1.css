@@ -1,0 +1,86 @@
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter-Regular.otf");
+    }
+body {margin: 0;
+    padding: 0;
+    }
+
+    body::-webkit-scrollbar {
+        width: 10px;               /* ширина scrollbar */
+    }
+    body::-webkit-scrollbar-track {
+        background: rgb(251 249 245);        /* цвет дорожки */
+    }
+    body::-webkit-scrollbar-thumb {
+        background-color: #905e01c5;    /* цвет плашки */
+        border-radius: 20px;       /* закругления плашки */
+        border: 3px solid rgb(251 249 245);  /* padding вокруг плашки */
+    }
+    body::-webkit-scrollbar-thumb:hover{
+        border: 1px solid rgb(251 249 245);
+    }
+    body::-webkit-scrollbar-thumb:focus{
+        border: 1px solid rgb(251 249 245);
+    }
+    
+.telo{
+    
+    margin: 50px 0;
+    padding-left: 160px;
+    padding-right: 160px; 
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+.voprosi1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 32px;
+
+    color: #533600;
+    margin-bottom: 35px;
+}
+.voprosi2{
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 15px;
+}
+.voprosi2_1{
+    font-size: 36px;
+    line-height: 32px;
+}
+.voprosi1_1{
+    width: 50px;
+    height: 50px;
+}
+.voprosi1_1_{
+    width: 70px;
+    height: 70px;
+}
+.voprosi1_2{
+    text-decoration: none;
+    
+    color: #533600; 
+}
+.voprosi1_2:hover {
+    text-decoration: underline;
+}
+.voprosi4{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin-right: 12px;
+}
+.voprosi3{
+    font-size: 12px;
+    line-height: 32px;
+    color: #5336008d;
+}
+ol{
+    padding: 0;
+    margin-left: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
