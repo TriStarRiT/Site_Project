@@ -150,7 +150,7 @@ $order = [
         'requiered' => 1
     ],
     'address_fla' => [
-        'field_name' => 'этаж',
+        'field_name' => 'номер квартиры',
         'requiered' => 1
     ],
     'comment' => [

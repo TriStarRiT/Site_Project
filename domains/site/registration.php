@@ -27,13 +27,23 @@ require_once __DIR__ . '/libs/function.php';
         <nav class="reg_text_nav">
             <label class="reg_text">Регистрация</label>
             <form action="registration.php" method="POST">
-                <input class="input" type="text"name="sname" placeholder="Фамилия">
-                <input class="input" type="text"name="name" placeholder="Имя">
-                <input class="input" type="text"name="fname" placeholder="Отчество">
-                <input class="input" type="email"name="email" placeholder="Адрес электронной почты">
-                <input class="input" type="password"name="password" placeholder="Пароль">
-                <input class="input" type="tel"name="telephone" placeholder="Телефон">
-                <input class="input" type="date"name="dbirth" placeholder="Дата рождения">
+                <div class="grider">
+                    <input class="input" type="text"name="sname" placeholder="Фамилия">
+                    <label class="star">*</label>
+                    <input class="input" type="text"name="name" placeholder="Имя">
+                    <label class="star">*</label>
+                    <input class="input" type="text"name="fname" placeholder="Отчество">
+                    <label class="star"></label>
+                    <input class="input" type="email"name="email" placeholder="Адрес электронной почты">
+                    <label class="star">*</label>
+                    <input class="input" type="password"name="password" placeholder="Пароль">
+                    <label class="star">*</label>
+                    <input class="input" type="tel"name="telephone" placeholder="Телефон">
+                    <label class="star">*</label>
+                    <input class="input" type="date"name="dbirth" placeholder="Дата рождения">
+                    <label class="star">*</label>
+                </div>
+                <label class="star">* - поле, обязательное для заполнения</label>
                 <nav class="ent_and_reg">
                     <label class="if">Если у вас уже есть аккаунт,<br> нажмите <a href="sign_in.php"><span style="color:#D1A14B">войти</span></a> </label>
                         <button type="submit" class="but_reg">Зарегистрироваться</button>

@@ -88,6 +88,9 @@ body::-webkit-scrollbar-thumb:focus{
     
     
 }
+.star{
+    color:red;
+}
 .text_{
     color: #A6A6A6;
 }

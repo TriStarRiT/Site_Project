@@ -12,6 +12,14 @@
     width:100px;
 }
 
+.grider{
+    display:grid;
+    grid-template-columns: 10fr 1fr;
+}
+.star{
+    margin-top:50px;
+    color:red;
+}
 .reg_text_nav{
     margin-left: auto;
     margin-right: auto;

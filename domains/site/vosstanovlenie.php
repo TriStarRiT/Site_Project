@@ -15,12 +15,13 @@ require_once __DIR__ . '/libs/function.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vosstanovlenie</title>
     <link rel="icon" href="/image/apple.ico" type="image/x-icon">
-    <link rel="stylesheet" href="vosstanovlenie.css">
-    <link rel="stylesheet" href="vosstanovlenie_obratno.css">
+    <link rel="icon" href="/image/apple.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/vosstanovlenie.css">
+    <link rel="stylesheet" href="css/vosstanovlenie_obratno.css">
 </head>
 <body>
 <div class="telo">
-    <div class="appl"><a href="glavnaia.html">
+    <div class="appl"><a href="glavnaia.php">
     <img class="apple" src="image/apple.png"></a>
     
     <?php

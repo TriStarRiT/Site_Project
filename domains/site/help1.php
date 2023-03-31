@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once __DIR__ . '/libs/data.php';
+require_once __DIR__ . '/libs/function.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +11,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help1</title>
     <link rel="icon" href="/image/apple.ico" type="image/x-icon">
-    <link rel="stylesheet" href="help1.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="css/help1.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
-    <div class="telo">
+<?php
+  require "header.php"
+  ?>
+        
+        
+<div class="telo">
 
         <div class="voprosi1">
             <span class="voprosi2_1">Часто задаваемые вопросы</span>
@@ -95,43 +106,8 @@
         </div>
 
     </div>
-    <footer>
-        <div class="adaptivno">
-            <div>
-
-            </div>
-            <div class="icona">
-                <a href="glavnaia.html"><img src="/image/footerapple.png" alt="FOODD icon"></a>
-                <div class="foot1">© Едадил, 2021</div>
-            </div>
-            <div>
-                <div class="foot2">Помощь</div>
-                <a href="help1.html" class="foot3">Инструкции и советы</a>
-                <br><a href="help1.html#12" class="foot3">Написать в поддержку</a>
-                <!--<br><a href="#" class="foot3">Правовые документы</a>-->
-            </div>
-            <div>
-                <div class="foot2">Партнерство</div>
-                <a href="help1.html#4" class="foot3">FOODD для бизнеса</a>
-                <br><a href="mailto:foodd.bisness@yandex.ru" class="foot3">foodd.bisness@yandex.ru</a>
-            </div>
-            <div>
-                <div class="foot2">FOODD в соц сетях</div>
-                <a href="#" class="foot3">ВКонтакте</a>
-                <br><a href="#" class="foot3">Instagram</a>
-                <br><a href="#" class="foot3">Facebook</a>
-                <br><a href="#" class="foot3">Одноклассники</a>
-            </div>
-            <div>
-                <div class="foot2">Для СМИ</div>
-                <a href="mailto:foodd@yandex.ru" class="foot3">foodd@yandex.ru</a>
-            </div>
-            <div>
-                <div class="foot2">Правообладателям</div>
-                <a href="#" class="foot3">О  предъявлении претензий</a>
-            </div>
-        </div>
-        
-    </footer>
+    <?php
+  require "footer.php"
+  ?>
 </body>
 </html>
