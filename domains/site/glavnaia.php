@@ -118,7 +118,7 @@ if (isset($_POST['ones2'])){
 </head>
 <body>
   <?php
-  require "header.php"
+  require_once "header.php"
   ?>
     <div class="telo">
         <div class="flex1">
@@ -274,7 +274,7 @@ if (isset($_POST['ones2'])){
         
     </div>
     <?php
-  require "footer.php"
+  require_once "footer.php"
   ?>
 </body>
 </html>
