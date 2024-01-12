@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once __DIR__ . '/libs/data.php';
+require_once __DIR__ . '/libs/function.php';
 function debug($data){
     echo '
     <nav style="margin-right:auto; margin-left:auto;">
